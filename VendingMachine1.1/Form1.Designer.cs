@@ -216,7 +216,7 @@
             // 
             // BTNKupi
             // 
-            this.BTNKupi.Location = new System.Drawing.Point(285, 346);
+            this.BTNKupi.Location = new System.Drawing.Point(275, 346);
             this.BTNKupi.Name = "BTNKupi";
             this.BTNKupi.Size = new System.Drawing.Size(110, 43);
             this.BTNKupi.TabIndex = 4;

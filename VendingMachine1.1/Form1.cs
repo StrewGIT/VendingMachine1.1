@@ -13,6 +13,7 @@ namespace VendingMachine1._1
     public partial class Form1 : Form
     {
         static int balans = 0;
+        static int br_artikala = 0;
         public Form1()
         {
             InitializeComponent();
@@ -20,7 +21,7 @@ namespace VendingMachine1._1
 
         private void TBoxUnesiCifru_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void TBoxUnesiCifru_MouseClick(object sender, MouseEventArgs e)
@@ -54,25 +55,29 @@ namespace VendingMachine1._1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (RBA1.Checked)
+            if (RBA1.Checked && br_artikala < 24)
             {
                 Button btn = new Button();
                 btn.Text = "1";
-                btn.Width = FLPAutomat.Width/3 -10;
+                btn.Width = FLPAutomat.Width / 3 - 10;
+                btn.Height = FLPAutomat.Width / 9;
+                br_artikala++;
                 FLPAutomat.Controls.Add(btn);
             }
-            else if (RBA2.Checked)
+            else if (RBA2.Checked && br_artikala <24)
             {
                 Button btn = new Button();
                 btn.Text = "2";
                 btn.Width = FLPAutomat.Width / 3 - 10;
+                br_artikala++;
                 FLPAutomat.Controls.Add(btn);
             }
-            else if (RBA3.Checked)
+            else if (RBA3.Checked && br_artikala < 24)
             {
                 Button btn = new Button();
                 btn.Text = "3";
                 btn.Width = FLPAutomat.Width / 3 - 10;
+                br_artikala++;
                 FLPAutomat.Controls.Add(btn);
             }
         }
