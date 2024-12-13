@@ -51,5 +51,30 @@ namespace VendingMachine1._1
                 e.Handled = true;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (RBA1.Checked)
+            {
+                Button btn = new Button();
+                btn.Text = "1";
+                btn.Width = FLPAutomat.Width/3 -10;
+                FLPAutomat.Controls.Add(btn);
+            }
+            else if (RBA2.Checked)
+            {
+                Button btn = new Button();
+                btn.Text = "2";
+                btn.Width = FLPAutomat.Width / 3 - 10;
+                FLPAutomat.Controls.Add(btn);
+            }
+            else if (RBA3.Checked)
+            {
+                Button btn = new Button();
+                btn.Text = "3";
+                btn.Width = FLPAutomat.Width / 3 - 10;
+                FLPAutomat.Controls.Add(btn);
+            }
+        }
     }
 }
