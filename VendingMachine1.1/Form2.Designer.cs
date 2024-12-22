@@ -33,11 +33,13 @@ namespace VendingMachine1._1
             this.LblUkucajteAdminskuSifruIliUdjiteKaoKupac = new System.Windows.Forms.Label();
             this.BtnKupac = new System.Windows.Forms.Button();
             this.GBoxAdminLogin = new System.Windows.Forms.GroupBox();
-            this.TBoxKorisnickoIme = new System.Windows.Forms.TextBox();
-            this.LblKorisnickoIme = new System.Windows.Forms.Label();
-            this.LblLozinka = new System.Windows.Forms.Label();
-            this.TBoxLozinka = new System.Windows.Forms.TextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.TBoxLozinka = new System.Windows.Forms.TextBox();
+            this.LblLozinka = new System.Windows.Forms.Label();
+            this.LblKorisnickoIme = new System.Windows.Forms.Label();
+            this.TBoxKorisnickoIme = new System.Windows.Forms.TextBox();
+            this.BtnUlogujSe = new System.Windows.Forms.Button();
+            this.LblPogresanLogin = new System.Windows.Forms.Label();
             this.GBoxAdminLogin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +75,8 @@ namespace VendingMachine1._1
             // 
             // GBoxAdminLogin
             // 
+            this.GBoxAdminLogin.Controls.Add(this.LblPogresanLogin);
+            this.GBoxAdminLogin.Controls.Add(this.BtnUlogujSe);
             this.GBoxAdminLogin.Controls.Add(this.linkLabel1);
             this.GBoxAdminLogin.Controls.Add(this.TBoxLozinka);
             this.GBoxAdminLogin.Controls.Add(this.LblLozinka);
@@ -85,21 +89,23 @@ namespace VendingMachine1._1
             this.GBoxAdminLogin.TabStop = false;
             this.GBoxAdminLogin.Text = "Admin log-in";
             // 
-            // TBoxKorisnickoIme
+            // linkLabel1
             // 
-            this.TBoxKorisnickoIme.Location = new System.Drawing.Point(120, 45);
-            this.TBoxKorisnickoIme.Name = "TBoxKorisnickoIme";
-            this.TBoxKorisnickoIme.Size = new System.Drawing.Size(100, 22);
-            this.TBoxKorisnickoIme.TabIndex = 0;
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(37, 174);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(147, 17);
+            this.linkLabel1.TabIndex = 7;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Kreiraj adminski nalog";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // LblKorisnickoIme
+            // TBoxLozinka
             // 
-            this.LblKorisnickoIme.AutoSize = true;
-            this.LblKorisnickoIme.Location = new System.Drawing.Point(15, 45);
-            this.LblKorisnickoIme.Name = "LblKorisnickoIme";
-            this.LblKorisnickoIme.Size = new System.Drawing.Size(99, 17);
-            this.LblKorisnickoIme.TabIndex = 4;
-            this.LblKorisnickoIme.Text = "Korisničko Ime";
+            this.TBoxLozinka.Location = new System.Drawing.Point(120, 79);
+            this.TBoxLozinka.Name = "TBoxLozinka";
+            this.TBoxLozinka.Size = new System.Drawing.Size(100, 22);
+            this.TBoxLozinka.TabIndex = 6;
             // 
             // LblLozinka
             // 
@@ -110,23 +116,39 @@ namespace VendingMachine1._1
             this.LblLozinka.TabIndex = 5;
             this.LblLozinka.Text = "Lozinka";
             // 
-            // TBoxLozinka
+            // LblKorisnickoIme
             // 
-            this.TBoxLozinka.Location = new System.Drawing.Point(120, 79);
-            this.TBoxLozinka.Name = "TBoxLozinka";
-            this.TBoxLozinka.Size = new System.Drawing.Size(100, 22);
-            this.TBoxLozinka.TabIndex = 6;
+            this.LblKorisnickoIme.AutoSize = true;
+            this.LblKorisnickoIme.Location = new System.Drawing.Point(15, 45);
+            this.LblKorisnickoIme.Name = "LblKorisnickoIme";
+            this.LblKorisnickoIme.Size = new System.Drawing.Size(99, 17);
+            this.LblKorisnickoIme.TabIndex = 4;
+            this.LblKorisnickoIme.Text = "Korisničko Ime";
             // 
-            // linkLabel1
+            // TBoxKorisnickoIme
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(43, 147);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(147, 17);
-            this.linkLabel1.TabIndex = 7;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Kreiraj adminski nalog";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.TBoxKorisnickoIme.Location = new System.Drawing.Point(120, 45);
+            this.TBoxKorisnickoIme.Name = "TBoxKorisnickoIme";
+            this.TBoxKorisnickoIme.Size = new System.Drawing.Size(100, 22);
+            this.TBoxKorisnickoIme.TabIndex = 0;
+            // 
+            // BtnUlogujSe
+            // 
+            this.BtnUlogujSe.Location = new System.Drawing.Point(72, 135);
+            this.BtnUlogujSe.Name = "BtnUlogujSe";
+            this.BtnUlogujSe.Size = new System.Drawing.Size(88, 36);
+            this.BtnUlogujSe.TabIndex = 8;
+            this.BtnUlogujSe.Text = "Uloguj se";
+            this.BtnUlogujSe.UseVisualStyleBackColor = true;
+            this.BtnUlogujSe.Click += new System.EventHandler(this.BtnUlogujSe_Click);
+            // 
+            // LblPogresanLogin
+            // 
+            this.LblPogresanLogin.AutoSize = true;
+            this.LblPogresanLogin.Location = new System.Drawing.Point(5, 110);
+            this.LblPogresanLogin.Name = "LblPogresanLogin";
+            this.LblPogresanLogin.Size = new System.Drawing.Size(0, 17);
+            this.LblPogresanLogin.TabIndex = 9;
             // 
             // Form2
             // 
@@ -157,5 +179,7 @@ namespace VendingMachine1._1
         private System.Windows.Forms.Label LblLozinka;
         private System.Windows.Forms.Label LblKorisnickoIme;
         private System.Windows.Forms.TextBox TBoxKorisnickoIme;
+        private System.Windows.Forms.Button BtnUlogujSe;
+        private System.Windows.Forms.Label LblPogresanLogin;
     }
 }

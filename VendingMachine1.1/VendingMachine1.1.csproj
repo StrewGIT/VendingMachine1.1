@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPage.Designer.cs">
+      <DependentUpon>AdminPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,15 @@
     <Compile Include="RegistracijaAdmina.Designer.cs">
       <DependentUpon>RegistracijaAdmina.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegistracijaPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistracijaPopUp.Designer.cs">
+      <DependentUpon>RegistracijaPopUp.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdminPage.resx">
+      <DependentUpon>AdminPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -81,6 +96,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RegistracijaAdmina.resx">
+      <DependentUpon>RegistracijaAdmina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistracijaPopUp.resx">
+      <DependentUpon>RegistracijaPopUp.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

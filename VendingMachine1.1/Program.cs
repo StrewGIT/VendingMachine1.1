@@ -16,7 +16,8 @@ namespace VendingMachine1._1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form2());
+            Form2 login = new Form2();
+            Application.Run(login);
         }
     }
 }
