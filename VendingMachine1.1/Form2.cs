@@ -52,5 +52,12 @@ namespace VendingMachine1._1
         {
 
         }
+
+        private void BtnKupac_Click(object sender, EventArgs e)
+        {
+            KupacOdabir kupacOdabir = new KupacOdabir();
+            this.Hide();
+            kupacOdabir.Show();
+        }
     }
 }

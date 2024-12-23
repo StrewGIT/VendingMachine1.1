@@ -72,6 +72,7 @@ namespace VendingMachine1._1
             this.BtnKupac.TabIndex = 2;
             this.BtnKupac.Text = "Udjite kao kupac";
             this.BtnKupac.UseVisualStyleBackColor = true;
+            this.BtnKupac.Click += new System.EventHandler(this.BtnKupac_Click);
             // 
             // GBoxAdminLogin
             // 

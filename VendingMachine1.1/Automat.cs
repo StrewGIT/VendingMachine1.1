@@ -7,103 +7,106 @@ using System.IO;
 using System.Windows.Forms;
 namespace VendingMachine1._1
 {
+    public class Kasa
+    {
+        private int novac;
+        private int[] novcanice;
+        private static int[] velicinaNovcanica = { 5, 10, 20, 50, 100, 200 };
+        public Kasa()
+        {
+            novac = 0;
+            novcanice = new int[6];
+            for (int i = 0; i < 6; i++)
+            {
+                novcanice[i] = 0;
+            }
+        }
+        public Kasa(int novac, int[] novcanice)
+        {
+            this.novac = novac;
+            this.novcanice = novcanice;
+        }
+        public bool dodajNovac(int novac)
+        {
+            int[] novcanice = { 5, 10, 20, 50, 100, 200 };
+            for (int i = 0; i < 6; i++)
+            {
+                if (novcanice[i] == novac)
+                {
+                    this.novac += novac;
+                    this.novcanice[i]++;
+                    return true;
+                }
+            }
+            return false;
+
+        }
+        public void oduzmiNovac(int novac)
+        {
+            int i = novcanice.Length - 1;
+            while (i >= 0)
+            {
+                if (novcanice[i] > 0)
+                {
+                    if (velicinaNovcanica[i] <= novac)
+                    {
+                        novac -= velicinaNovcanica[i];
+                        novcanice[i]--;
+                    }
+                }
+                if (novcanice[i] == 0 || velicinaNovcanica[i] > novac) i--;
+            }
+
+        }
+
+        public int Novac { get { return novac; } }
+        public void Kusur()
+        {
+            MessageBox.Show($"Vaš kusur je \n 5 : {novcanice[0]}, 10 : {novcanice[1]}, 20 : {novcanice[2]}, 50 : {novcanice[3]}, 100 : {novcanice[4]}, 200 : {novcanice[5]}");
+        }
+        public int dajNovcanice(int i) { return novcanice[i]; }
+    }
+    public class Artikal
+    {
+        public int id;
+        string naziv;
+        string slikaUrl;
+        int rokTrajanja;
+        int cena;
+        DateTime datumDodavanja;
+        public Artikal(int id)
+        {
+            this.id = id;
+            StreamReader citac = new StreamReader(@"..\..\tabelaArtikala.txt");
+            for (int i = 0; i < id - 1; i++) { citac.ReadLine(); }
+            string temp = citac.ReadLine();
+            string[] strs = temp.Split(' ');
+            naziv = strs[0];
+            slikaUrl = strs[1];
+            cena = int.Parse(strs[2]);
+            rokTrajanja = int.Parse(strs[3]);
+            citac.Close();
+            citac.Dispose();
+            datumDodavanja = DateTime.Today;
+        }
+        public string Ime
+        {
+            get { return Ime; }
+        }
+        public string SlikaUrl
+        {
+            get { return slikaUrl; }
+        }
+        public bool Pokvareno()
+        {
+            return (DateTime.Today >= datumDodavanja.AddDays(rokTrajanja));
+        }
+
+
+    }
     public class Automat
     {
-        public class Kasa
-        {
-            private int novac;
-            private int[] novcanice;
-            private static int[] velicinaNovcanica = { 5, 10, 20, 50, 100, 200 };
-            public Kasa()
-            {
-                novac = 0;
-                novcanice = new int[6];
-                for (int i = 0; i < 6; i++)
-                {
-                    novcanice[i] = 0;
-                }
-            }
-            public Kasa(int novac, int[] novcanice)
-            {
-                this.novac = novac;
-                this.novcanice = novcanice;
-            }
-            public bool dodajNovac(int novac)
-            {
-                int[] novcanice = { 5, 10, 20, 50, 100, 200 };
-                for (int i = 0; i < 6; i++)
-                {
-                    if (novcanice[i] == novac)
-                    {
-                        this.novac += novac;
-                        this.novcanice[i]++;
-                        return true;
-                    }
-                }
-                return false;
-
-            }
-            public void oduzmiNovac(int novac)
-            {
-                int i = novcanice.Length - 1;
-                while (i >= 0)
-                {
-                    if (novcanice[i] > 0)
-                    {
-                        if (velicinaNovcanica[i] <= novac)
-                        {
-                            novac -= velicinaNovcanica[i];
-                            novcanice[i]--;
-                        }
-                    }
-                    if (novcanice[i] == 0 || velicinaNovcanica[i] > novac) i--;
-                }
-
-            }
-
-            public int Novac { get { return novac; } }
-            public void Kusur()
-            {
-                MessageBox.Show($"Vaš kusur je \n 5 : {novcanice[0]}, 10 : {novcanice[1]}, 20 : {novcanice[2]}, 50 : {novcanice[3]}, 100 : {novcanice[4]}, 200 : {novcanice[5]}");
-            }
-            public int dajNovcanice(int i) { return novcanice[i]; }
-        }
-        public class Artikal
-        {
-            public int id;
-            string naziv;
-            string slikaUrl;
-            int rokTrajanja;
-            DateTime datumDodavanja;
-            public Artikal(int id)
-            {
-                this.id = id;
-                StreamReader citac = new StreamReader(@"..\..\tabelaArtikala.txt");
-                for (int i = 0; i < id - 1; i++) { citac.ReadLine(); }
-                string temp = citac.ReadLine();
-                string[] strs = temp.Split(' ');
-                naziv = strs[0];
-                slikaUrl = strs[1];
-                rokTrajanja = int.Parse(strs[2]);
-                citac.Close();
-                citac.Dispose();
-                datumDodavanja = DateTime.Today;
-            }
-            public string Ime
-            {
-                get { return Ime; }
-            }
-            public string SlikaUrl
-            {
-                get { return slikaUrl; }
-            }
-            public bool Pokvareno()
-            {
-                return (DateTime.Today >= datumDodavanja.AddDays(rokTrajanja));
-            }
-            
-
-        }
+        
         private Kasa kasa;
         private List<Artikal> artikli;
         private string naziv;
@@ -119,8 +122,10 @@ namespace VendingMachine1._1
                 StreamReader citac = new StreamReader(@"Automati\" + ime + ".txt");
                 string[] nln = citac.ReadLine().Split(' ');
                 int[] novcanice = new int[6];
-                for (int i = 0; i < 6; i++) { novcanice[i] = int.Parse(nln[i]); }
-                kasa = new Kasa(int.Parse(nln[0]), novcanice);
+                int suma = 0;
+                int[] velicinaNovcanica = { 5, 10, 20, 50, 100, 200 };
+                for (int i = 0; i < 6; i++) { novcanice[i] = int.Parse(nln[i]); suma += novcanice[i]*velicinaNovcanica[i]; }
+                kasa = new Kasa(suma, novcanice);
                 string nl = citac.ReadLine();
                 artikli = new List<Artikal>();
                 while (nl != null)
