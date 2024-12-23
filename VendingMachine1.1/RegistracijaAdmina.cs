@@ -64,6 +64,11 @@ namespace VendingMachine1._1
                 registracijaUspesna = false;
                 razlogNeuspeha = 3;
             }
+            else if(TBoxKorisnickoIme.Text.Contains(" ") || TBoxLozinka.Text.Contains(" "))
+            {
+                registracijaUspesna = false;
+                razlogNeuspeha = 4;
+            }
             if (registracijaUspesna)
             {
                 admini.WriteLine(TBoxKorisnickoIme.Text + " " + TBoxLozinka.Text);

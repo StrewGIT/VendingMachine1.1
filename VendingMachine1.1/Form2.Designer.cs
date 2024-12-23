@@ -33,13 +33,13 @@ namespace VendingMachine1._1
             this.LblUkucajteAdminskuSifruIliUdjiteKaoKupac = new System.Windows.Forms.Label();
             this.BtnKupac = new System.Windows.Forms.Button();
             this.GBoxAdminLogin = new System.Windows.Forms.GroupBox();
+            this.LblPogresanLogin = new System.Windows.Forms.Label();
+            this.BtnUlogujSe = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.TBoxLozinka = new System.Windows.Forms.TextBox();
             this.LblLozinka = new System.Windows.Forms.Label();
             this.LblKorisnickoIme = new System.Windows.Forms.Label();
             this.TBoxKorisnickoIme = new System.Windows.Forms.TextBox();
-            this.BtnUlogujSe = new System.Windows.Forms.Button();
-            this.LblPogresanLogin = new System.Windows.Forms.Label();
             this.GBoxAdminLogin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,6 +89,24 @@ namespace VendingMachine1._1
             this.GBoxAdminLogin.TabStop = false;
             this.GBoxAdminLogin.Text = "Admin log-in";
             // 
+            // LblPogresanLogin
+            // 
+            this.LblPogresanLogin.AutoSize = true;
+            this.LblPogresanLogin.Location = new System.Drawing.Point(5, 110);
+            this.LblPogresanLogin.Name = "LblPogresanLogin";
+            this.LblPogresanLogin.Size = new System.Drawing.Size(0, 17);
+            this.LblPogresanLogin.TabIndex = 9;
+            // 
+            // BtnUlogujSe
+            // 
+            this.BtnUlogujSe.Location = new System.Drawing.Point(72, 135);
+            this.BtnUlogujSe.Name = "BtnUlogujSe";
+            this.BtnUlogujSe.Size = new System.Drawing.Size(88, 36);
+            this.BtnUlogujSe.TabIndex = 8;
+            this.BtnUlogujSe.Text = "Uloguj se";
+            this.BtnUlogujSe.UseVisualStyleBackColor = true;
+            this.BtnUlogujSe.Click += new System.EventHandler(this.BtnUlogujSe_Click);
+            // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
@@ -132,24 +150,6 @@ namespace VendingMachine1._1
             this.TBoxKorisnickoIme.Size = new System.Drawing.Size(100, 22);
             this.TBoxKorisnickoIme.TabIndex = 0;
             // 
-            // BtnUlogujSe
-            // 
-            this.BtnUlogujSe.Location = new System.Drawing.Point(72, 135);
-            this.BtnUlogujSe.Name = "BtnUlogujSe";
-            this.BtnUlogujSe.Size = new System.Drawing.Size(88, 36);
-            this.BtnUlogujSe.TabIndex = 8;
-            this.BtnUlogujSe.Text = "Uloguj se";
-            this.BtnUlogujSe.UseVisualStyleBackColor = true;
-            this.BtnUlogujSe.Click += new System.EventHandler(this.BtnUlogujSe_Click);
-            // 
-            // LblPogresanLogin
-            // 
-            this.LblPogresanLogin.AutoSize = true;
-            this.LblPogresanLogin.Location = new System.Drawing.Point(5, 110);
-            this.LblPogresanLogin.Name = "LblPogresanLogin";
-            this.LblPogresanLogin.Size = new System.Drawing.Size(0, 17);
-            this.LblPogresanLogin.TabIndex = 9;
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -161,6 +161,7 @@ namespace VendingMachine1._1
             this.Controls.Add(this.LblDobrodosli);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.GBoxAdminLogin.ResumeLayout(false);
             this.GBoxAdminLogin.PerformLayout();
             this.ResumeLayout(false);

@@ -25,6 +25,7 @@ namespace VendingMachine1._1
                     case (1): LblRazlogNeuspeha.Text = "Dato korisničko ime već postoji";break;
                     case (2): LblRazlogNeuspeha.Text = "Korisničko ime i lozinka ne mogu biti prazni";break;
                     case (3): LblRazlogNeuspeha.Text = "Lozinke moraju da se poklapaju";break;
+                    case (4): LblRazlogNeuspeha.Text = "Zabranjeno korišćenje blanko karaktera";break;
                 }
                 LblRazlogNeuspeha.Location = new Point((this.Size.Width - LblRazlogNeuspeha.Size.Width) / 2, LblRazlogNeuspeha.Location.Y);
             }

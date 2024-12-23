@@ -47,5 +47,10 @@ namespace VendingMachine1._1
             citac.Close();
             citac.Dispose();
         }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
