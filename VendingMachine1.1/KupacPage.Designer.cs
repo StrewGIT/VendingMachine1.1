@@ -169,6 +169,7 @@ namespace VendingMachine1._1
             this.Controls.Add(this.LblBalansAutomata);
             this.Name = "KupacPage";
             this.Text = "KupacPage";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.KupacPage_FormClosed);
             this.GBoxUbaciNovac.ResumeLayout(false);
             this.GBoxUbaciNovac.PerformLayout();
             this.ResumeLayout(false);

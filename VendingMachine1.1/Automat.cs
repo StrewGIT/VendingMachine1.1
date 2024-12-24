@@ -26,6 +26,12 @@ namespace VendingMachine1._1
             this.novac = novac;
             this.novcanice = novcanice;
         }
+        public void dodajNovcanice(int[] novcanice)
+        {
+            for (int i = 0; i < 6; i++) {
+                this.novcanice[i] += novcanice[i];
+            }
+        }
         public bool dodajNovac(int novac)
         {
             int[] novcanice = { 5, 10, 20, 50, 100, 200 };
@@ -41,8 +47,9 @@ namespace VendingMachine1._1
             return false;
 
         }
-        public void oduzmiNovac(int novac)
+        public int[] oduzmiNovac(int novac)
         {
+            int[] oduzetNovac = { 0,0,0,0,0,0};
             int i = novcanice.Length - 1;
             while (i >= 0)
             {
@@ -52,10 +59,12 @@ namespace VendingMachine1._1
                     {
                         novac -= velicinaNovcanica[i];
                         novcanice[i]--;
+                        oduzetNovac[i]++;
                     }
                 }
                 if (novcanice[i] == 0 || velicinaNovcanica[i] > novac) i--;
             }
+            return oduzetNovac;
 
         }
 
@@ -65,6 +74,7 @@ namespace VendingMachine1._1
             MessageBox.Show($"Vaš kusur je \n 5 : {novcanice[0]}, 10 : {novcanice[1]}, 20 : {novcanice[2]}, 50 : {novcanice[3]}, 100 : {novcanice[4]}, 200 : {novcanice[5]}");
         }
         public int dajNovcanice(int i) { return novcanice[i]; }
+        public int[] dajNovcanice() { return novcanice; }
     }
     public class Artikal
     {
@@ -72,7 +82,7 @@ namespace VendingMachine1._1
         string naziv;
         string slikaUrl;
         int rokTrajanja;
-        int cena;
+        public int cena;
         DateTime datumDodavanja;
         public Artikal(int id)
         {
@@ -150,9 +160,9 @@ namespace VendingMachine1._1
         {
             kasa.dodajNovac(novac);
         }
-        public void oduzmiNovac(int novac)
+        public int[] oduzmiNovac(int novac)
         {
-            kasa.oduzmiNovac(novac);
+            return kasa.oduzmiNovac(novac);
         }
         public int Novac()
         {
@@ -181,6 +191,18 @@ namespace VendingMachine1._1
             }
             pisac.Close();
             pisac.Dispose();
+        }
+        public void dodajNovcanice(int[] novcanice)
+        {
+            kasa.dodajNovcanice(novcanice);
+        }
+        public int getID(int i)
+        {
+            return artikli[i].id;
+        }
+        public int idToCena(int id)
+        {
+            return new Artikal(id).cena;
         }
     }
 }

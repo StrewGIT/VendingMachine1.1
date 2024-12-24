@@ -39,8 +39,5 @@ namespace VendingMachine1._1
             Form2.instanca.Close();
         }
     }
-    class DugmeOdabir : Button
-    {
-        
-    }
+    
 }

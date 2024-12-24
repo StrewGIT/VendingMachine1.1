@@ -53,6 +53,12 @@
       <DependentUpon>AdminPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Automat.cs" />
+    <Compile Include="CenaPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CenaPopup.Designer.cs">
+      <DependentUpon>CenaPopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </Compile>
     <EmbeddedResource Include="AdminPage.resx">
       <DependentUpon>AdminPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CenaPopup.resx">
+      <DependentUpon>CenaPopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
