@@ -14,6 +14,7 @@ namespace VendingMachine1._1
     {
         Kasa kasa = new Kasa();
         Automat automat ;
+        PictureBox pritisnut;
         public KupacPage(string ime)
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace VendingMachine1._1
                 slika.Size = new Size(50, 50);
                 slika.SizeMode = PictureBoxSizeMode.StretchImage;
                 slika.Click += new EventHandler(slika_OnClick);
-                slika.MinimumSize = new Size(automat.getID(i),slika.MinimumSize.Height);
+                slika.MinimumSize = new Size(automat.getID(i),i);
                 FLPAutomat.Controls.Add(slika);
             }
         }
@@ -35,13 +36,16 @@ namespace VendingMachine1._1
             CenaPopup cp = new CenaPopup(automat.idToCena(slika.MinimumSize.Width), kasa, automat);
             cp.Show();
             cp.FormClosed += new FormClosedEventHandler(cp_FormClosed);
+            pritisnut = slika;
         }
         void cp_FormClosed(object sender,EventArgs e)
         {
             if (CenaPopup.proslo)
             {
-                CenaPopup.kupac.Kusur();
                 kasa = new Kasa();
+                automat.oduzmiArtikal(pritisnut.MaximumSize.Height);
+                pritisnut.Dispose();
+                LblBalansAutomata.Text = $"Balans: {kasa.Novac}";
             }
         }
 
@@ -53,12 +57,13 @@ namespace VendingMachine1._1
             else if (RB50.Checked) { kasa.dodajNovac(50); }
             else if (RB100.Checked) { kasa.dodajNovac(100); }
             else if (RB200.Checked) { kasa.dodajNovac(200); }
-            LblBalansAutomata.Text = $"Balans automata: {kasa.Novac}";
+            LblBalansAutomata.Text = $"Balans: {kasa.Novac}";
         }
 
         private void KupacPage_FormClosed(object sender, FormClosedEventArgs e)
         {
             Form2.instanca.Close();
+            automat.Save();
         }
     }
 }

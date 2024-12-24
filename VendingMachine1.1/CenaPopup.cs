@@ -28,13 +28,17 @@ namespace VendingMachine1._1
         private void BtnKupi_Click(object sender, EventArgs e)
         {
             automat.dodajNovcanice(kupac.dajNovcanice());
-            if (kupac.Novac < cena) { MessageBox.Show("Nemate dovoljno para"); proslo=false; this.Close(); }
-            
-             int delta = kupac.Novac - cena;
-             kupac = new Kasa();
-             kupac.dodajNovcanice(automat.oduzmiNovac(delta));
-             proslo = true;
-            
+            if (kupac.Novac < cena) { MessageBox.Show("Nemate dovoljno para"); proslo = false; this.Close(); }
+            else
+            {
+                int delta = kupac.Novac - cena;
+                //MessageBox.Show("delta: " + delta);
+                kupac = new Kasa();
+                kupac.dodajNovcanice(automat.oduzmiNovac(delta));
+                kupac.Kusur();
+                proslo = true;
+                this.Close();
+            }
         }
 
         private void CenaPopup_FormClosed(object sender, FormClosedEventArgs e)

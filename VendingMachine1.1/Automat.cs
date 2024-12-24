@@ -31,6 +31,7 @@ namespace VendingMachine1._1
             for (int i = 0; i < 6; i++) {
                 this.novcanice[i] += novcanice[i];
             }
+
         }
         public bool dodajNovac(int novac)
         {
@@ -155,6 +156,10 @@ namespace VendingMachine1._1
         public void dodajArtikal(int id)
         {
             artikli.Add(new Artikal(id));
+        }
+        public void oduzmiArtikal(int pos)
+        {
+            artikli.RemoveAt(pos);
         }
         public void dodajNovac(int novac)
         {
